@@ -97,6 +97,19 @@ class ReCaptcha
     }
 
     /**
+     * getWidget
+     *
+     * @param string $site_key
+     * @access public
+     * @return string
+     */
+    public function getWidget($site_key)
+    {
+        return '<div class="g-recaptcha" data-sitekey="' . $site_key . '"></div>'
+               . ' <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=zh-TW"></script>';
+    }
+
+    /**
      * Calls the reCAPTCHA siteverify API to verify whether the user passes
      * CAPTCHA test.
      *
