@@ -52,13 +52,14 @@ class ReCaptcha
      *
      * @param string $secret shared secret between site and ReCAPTCHA server.
      */
-    function ReCaptcha($secret)
+    function ReCaptcha($secret, $proxy_site)
     {
         if ($secret == null || $secret == "") {
             die("To use reCAPTCHA you must get an API key from <a href='"
                 . self::$_signupUrl . "'>" . self::$_signupUrl . "</a>");
         }
         $this->_secret=$secret;
+        $this->proxy_site = $proxy_site;
     }
 
     /**
