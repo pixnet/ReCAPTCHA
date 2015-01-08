@@ -92,7 +92,7 @@ class ReCaptcha
     private function _submitHTTPGet($path, $data)
     {
         $req = $this->_encodeQS($data);
-        $response = file_get_contents($path . $req);
+        $response = $this->curlGet($path . $req);
         return $response;
     }
 
