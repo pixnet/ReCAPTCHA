@@ -138,6 +138,37 @@ class ReCaptcha
     }
 
     /**
+     * curlGet
+     *
+     * @param string $url
+     * @access private
+     * @return json
+     */
+    private function curlGet($url)
+    {
+        $header = [];
+        $header[] = "Accept-Encoding: identity";
+        $header[] = "Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
+        $header[] = "Cache-Control: max-age=0";
+        $header[] = "Connection: keep-alive";
+        $header[] = "Keep-Alive: 300";
+        $header[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+        $header[] = "Accept-Language: zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4";
+        $header[] = "Pragma: ";
+
+        $ch = $this->initHandler();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/14.0.1');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+        $output = curl_exec($ch);
+        curl_close($ch);
+
+        return $output;
+    }
+
+    /**
      * initHandler
      *
      * @access private
