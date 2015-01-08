@@ -1,6 +1,6 @@
 ReCAPTCHA
 =========
-URL: https://github.com/google/ReCAPTCHA
+URL: https://github.com/pixnet/ReCAPTCHA
 Version:
 License: BSD
 License File: LICENSE
