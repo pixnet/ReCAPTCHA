@@ -136,6 +136,26 @@ class ReCaptcha
 
         return $recaptchaResponse;
     }
+
+    /**
+     * initHandler
+     *
+     * @access private
+     * @return resource
+     */
+    private function initHandler()
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_PROXY, $this->proxy_site);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
+
+        return $ch;
+    }
 }
 
 ?>
